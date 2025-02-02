@@ -1,7 +1,7 @@
 import { checkForUrl } from './nameChecker';
 
 // If working on Udacity workspace, update this with the Server API URL e.g. `https://wfkdhyvtzx.prod.udacity-student-workspaces.com/api`
-const serverURL = 'https://localhost:8000/api';
+const serverURL = 'http://localhost:8000/api'; // Ensure this is http if your server is not configured for https
 
 const form = document.getElementById('urlForm');
 form.addEventListener('submit', handleSubmit);
@@ -17,6 +17,7 @@ function handleSubmit(event) {
 
     // If the URL is valid, send it to the server using the serverURL constant above
     if (check) {
+        console.log('Sending request to server:', serverURL);
         fetch(serverURL, {
             method: 'POST',
             credentials: 'same-origin',
@@ -33,6 +34,7 @@ function handleSubmit(event) {
             return res.json();
         })
         .then(function(res) {
+            console.log('Response from server:', res);
             document.getElementById('results').innerHTML = `Polarity: ${res.polarity}, Subjectivity: ${res.subjectivity}, Text: ${res.text}`;
         })
         .catch(error => {
