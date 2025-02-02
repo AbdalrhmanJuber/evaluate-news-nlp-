@@ -24,7 +24,7 @@ To get a local copy up and running, follow these simple steps.
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/evaluate-news-nlp.git
+    git clone https://github.com/AbdalrhmanJuber/evaluate-news-nlp-.git
     ```
 2. Navigate to the project directory:
     ```sh
